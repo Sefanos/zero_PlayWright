@@ -1,0 +1,73 @@
+# Node
+node_modules/
+
+# Next.js
+.next/
+.next/**
+out/
+build/
+
+# Production
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# TypeScript
+.tsbuildinfo
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build cache
+.cache/
+
+# Tailwind / PostCSS output
+output.css
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+playwright/.auth/
+
+# Misc
+coverage/
+coverage/**
+
+# JetBrains
+.idea/
+
+# Ignore local npm package.json created inside .next when running certain builds
+.next/package.json
+
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
