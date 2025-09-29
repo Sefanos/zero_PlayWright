@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { destinations } from '../_data'
+import { destinations, saveData } from '../_data'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Normalize query values to strings (req.query may contain arrays)
@@ -19,6 +19,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const { text } = req.body || {}
     const todo = { id: Date.now().toString(), text: text || '', done: false }
     destinations[destIndex].todos.push(todo)
+    saveData()
     return res.status(201).json(todo)
   }
 
@@ -28,10 +29,12 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       const todoIndex = destinations[destIndex].todos.findIndex((t: { id: string }) => String(t.id) === String(todoId))
       if (todoIndex === -1) return res.status(404).json({ error: 'Todo not found' })
       destinations[destIndex].todos.splice(todoIndex, 1)
+      saveData()
       return res.status(204).end()
     } else {
       // delete the destination
       destinations.splice(destIndex, 1)
+      saveData()
       return res.status(204).end()
     }
   }

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { destinations } from '../_data'
+import { destinations, saveData } from '../_data'
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
@@ -10,6 +10,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const id = Date.now().toString()
     const dest = { id, title: title || 'Untitled', description: description || '', todos: [] }
     destinations.push(dest)
+    saveData()
     return res.status(201).json(dest)
   }
   res.status(405).end()

@@ -48,6 +48,9 @@ output.css
 
 # Playwright
 test-results/
+
+# App data
+data.json
 playwright-report/
 blob-report/
 playwright/.cache/
